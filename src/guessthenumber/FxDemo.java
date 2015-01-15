@@ -11,18 +11,13 @@ import javafx.stage.Stage;
 /**
  * JavaFX simple text input ui
  * 
- * @author Andersson
+ * @author Solifex
  */
 public class FxDemo extends Application {
+/**
+ * Will rewrite complete ui	
+ */
 	
-	
-	
-	/**
-    * Start demonstration of JavaFX text capabilities.
-    * 
-    * @param stage Stage for JavaFX application.
-    * @throws Exception Exception in JavaFX application.
-    */
    @Override
    public void start(final Stage primaryStage) throws Exception
    {
