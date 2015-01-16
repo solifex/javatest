@@ -27,37 +27,36 @@ import javafx.stage.Stage;
 
 /**
  * JavaFX simple text input ui
- * 
+ *
  * @author Solifex
  */
 public class FxDemo extends Application {
 /**
- * Will rewrite complete ui	
+ * Will rewrite complete ui
  */
-	
+
 	static Label titleLabel;
 	static TextArea outputTextArea;
 	static TextField inputTextField;
 	static Button sendButton;
 	static Button restartButton;
-	
+
 	static String textContent;
-	static String textLast;
 	static int textNumber;
 	static int genNumber;
-	
+
 	static Label triesLabel;
 	static int tries;
-	
+
 	public final static String lb = "\n";
-	
+
    @Override
    public void start(final Stage gameStage) throws Exception
    {
 	   Group root = new Group();
 	   gameStage.setTitle("FxDemo");
 	   Scene gameScene = new Scene(root);
-	  
+
 	   titleLabel = new Label("Guess the Number");
 	   titleLabel.setFont(Font.font(null, FontWeight.BOLD, 22));
 	   triesLabel = new Label("Fails" + lb + tries);
@@ -67,7 +66,7 @@ public class FxDemo extends Application {
 	   inputTextField = new TextField();
 	   sendButton = new Button();
 	   restartButton = new Button();
-	   
+
 	   restartButton.setText("Reset Game");
 	   restartButton.setMaxWidth(800);
 	   restartButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -79,18 +78,18 @@ public class FxDemo extends Application {
 			outputTextArea.appendText("Guess a number between 1-10" + lb);
 
 			genNumber = randomNumber(10 + 1);
-			
+
 			tries = 0;
 			triesLabel.setText("Fails" + lb + tries);
-			
+
 			inputTextField.setDisable(false);
 			sendButton.setDisable(false);
-			
+
 			clearInput();
-			
+
 		}
 	});
-	   
+
 	   sendButton.setText("Guess");
 	   sendButton.setMaxWidth(100);
 	   sendButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -102,7 +101,7 @@ public class FxDemo extends Application {
 			inputTextField.requestFocus();
 		}
 	});
-	   
+
 	   outputTextArea.setEditable(false);
 	   outputTextArea.setFocusTraversable(false);
 	   outputTextArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -110,23 +109,21 @@ public class FxDemo extends Application {
 		@Override
 		public void handle(KeyEvent switchfocus) {
 			inputTextField.requestFocus();
-			
+
 		}
 	});
-	   
+
 	   inputTextField.isFocused();
 	   inputTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
 
 		@Override
 		public void handle(KeyEvent key) {
 			String text = inputTextField.getText();
-	
+
 			 if(key.getCode().toString() == "ENTER") {
 				 showText(text);
 			 } else if(key.getCode().toString() == "RETURN") {
 				 showText(text);
-			 } else {
-				 return;
 			 }
 		}
 	});
@@ -135,7 +132,7 @@ public class FxDemo extends Application {
 	   grid.setAlignment(Pos.CENTER);
 	   grid.setHgap(15);
 	   grid.setVgap(15);
-	
+
 	   grid.add(titleLabel, 0, 0);
 	   grid.setColumnSpan(titleLabel, 2);
 	   grid.setHalignment(titleLabel, HPos.CENTER);
@@ -150,45 +147,37 @@ public class FxDemo extends Application {
 	   grid.add(restartButton, 0, 3);
 	   grid.setColumnSpan(restartButton, 2);
 	   grid.setHalignment(restartButton, HPos.CENTER);
-	   
+
 	   root.getChildren().addAll(grid);
-	   
+
        gameStage.setScene(gameScene);
        gameStage.setResizable(false);
        gameStage.show();
-       
-       
-      
-	   
    }
-   
+
    public static void showText(String text) {
 	   textContent = text;
-	   
+
 	   if (genNumber == 0) {
 		   genNumber = randomNumber(10 + 1);
 	   }
-	   
+
 	   if (inputTextField.getText() != null && !inputTextField.getText().isEmpty()) {
 		   checkNumber();
-		   
-	   } else {
-		   return;
 	   }
-	   
+
    }
-   
+
 /**
  * Random Number Generator
  */
    public static int randomNumber(int x) {
        Random rand = new Random();
-       int numberToGuess = rand.nextInt(x);
-       return numberToGuess;
+       return rand.nextInt(x);
    }
- 
+
 /**
- * Checks and casts string to integer 
+ * Checks and casts string to integer
  */
    public static void checkNumber() {
 		try {
@@ -201,9 +190,9 @@ public class FxDemo extends Application {
 		}
 		textNumber = Integer.parseInt(textContent);
 		guessThis();
-		
+
 	}
-	 
+
 /**
  * Compares integers
  */
@@ -228,7 +217,7 @@ public class FxDemo extends Application {
 			sendButton.setDisable(true);
 		}
 	}
-	
+
 /**
  * Lazyman clear input
  */
@@ -236,18 +225,18 @@ public class FxDemo extends Application {
 		inputTextField.clear();
 		inputTextField.requestFocus();
 	}
-	
+
    /**
     * Main JavaFX application launching method.
-    * 
+    *
     * @param arguments Command-line arguments: none expected.
     */
    public static void main(final String[] arguments)
    {
-	  
+
       Application.launch();
-      
-     
+
+
    }
 
 
