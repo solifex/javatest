@@ -86,6 +86,9 @@ public class FxDemo extends Application {
 			tries = 0;
 			triesLabel.setText("Fails" + lb + tries);
 			
+			inputTextField.setDisable(false);
+			sendButton.setDisable(false);
+			
 		}
 	});
 	   
