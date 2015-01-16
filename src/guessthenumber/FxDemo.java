@@ -91,7 +91,7 @@ public class FxDemo extends Application {
 		}
 	});
 	   
-	   sendButton.setText("Send");
+	   sendButton.setText("Guess");
 	   sendButton.setMaxWidth(100);
 	   sendButton.setOnAction(new EventHandler<ActionEvent>() {
 
