@@ -77,10 +77,7 @@ public class FxDemo extends Application {
 			outputTextArea.clear();
 			outputTextArea.setText("GAME RESET" + lb);
 			outputTextArea.appendText("Guess a number between 1-10" + lb);
-			
-			inputTextField.requestFocus();
-			inputTextField.clear();
-			
+
 			genNumber = randomNumber(10 + 1);
 			
 			tries = 0;
@@ -88,6 +85,8 @@ public class FxDemo extends Application {
 			
 			inputTextField.setDisable(false);
 			sendButton.setDisable(false);
+			
+			clearInput();
 			
 		}
 	});
