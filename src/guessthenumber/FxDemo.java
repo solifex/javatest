@@ -48,7 +48,7 @@ public class FxDemo extends Application {
 	static Label triesLabel;
 	static int tries;
 
-	public final static String lb = "\n";
+	protected final static String lb = "\n";
 
    @Override
    public void start(final Stage gameStage) throws Exception
@@ -155,7 +155,7 @@ public class FxDemo extends Application {
        gameStage.show();
    }
 
-   public static void showText(String text) {
+   private static void showText(String text) {
 	   textContent = text;
 
 	   if (genNumber == 0) {
@@ -171,7 +171,7 @@ public class FxDemo extends Application {
 /**
  * Random Number Generator
  */
-   public static int randomNumber(int x) {
+   private static int randomNumber(int x) {
        Random rand = new Random();
        return rand.nextInt(x);
    }
@@ -221,7 +221,7 @@ public class FxDemo extends Application {
 /**
  * Lazyman clear input
  */
-	public final static void clearInput() {
+	private static void clearInput() {
 		inputTextField.clear();
 		inputTextField.requestFocus();
 	}
